@@ -1,5 +1,4 @@
 import sqlite3
-from parser.parser_from_ts_kg import get_data_from_page, get_html
 
 
 def sql_create():
@@ -13,5 +12,10 @@ def sql_create():
     db.execute("CREATE TABLE IF NOT EXISTS films"
                "(title VARCHAR (100),"
                "link TEXT)")
-    # cursor.execute("INSERT INTO films (title, link) VALUES ()")
+    db.commit()
+
+
+def sql_command_insert(film: dict):
+    cursor.execute("INSERT INTO films(title, link) VALUES (title, link)",
+                    (film.get('title'), film.get('link')))
     db.commit()

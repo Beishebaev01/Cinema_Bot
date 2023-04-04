@@ -2,7 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 # from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import State, StatesGroup
-# from keyboards import client_cb
+from callback import client_cb
 from config import ADMINS
 # from database.bot_db import sql_command_insert
 
