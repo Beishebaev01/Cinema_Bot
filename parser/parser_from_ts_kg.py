@@ -1,5 +1,4 @@
-from pprint import pprint
-
+from data_base.database import sql_command_insert
 import requests
 from bs4 import BeautifulSoup
 
@@ -39,12 +38,10 @@ def parser():
         for i in range(1, 2):
             html = get_html(f"{URL}page/{i}/")
             current_page = get_data_from_page(html.text)
-            current_page = get_data_from_page(html.text)
-            films.extend(current_page)
+            sql_command_insert(current_page)
             films.extend(current_page)
         return films
     else:
         raise Exception("Error in parser")
 
 
-pprint(parser())

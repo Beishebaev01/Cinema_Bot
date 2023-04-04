@@ -16,6 +16,6 @@ def sql_create():
 
 
 def sql_command_insert(film: dict):
-    cursor.execute("INSERT INTO films(title, link) VALUES (title, link)",
+    cursor.execute("INSERT INTO films(title, link) VALUES (?, ?)",
                     (film.get('title'), film.get('link')))
     db.commit()
