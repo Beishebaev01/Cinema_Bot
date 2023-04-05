@@ -28,7 +28,6 @@ def get_data_from_page(html):
             "link": item.find("div", class_="b-content__inline_item-link").find("a").get("href"),
         }
         sql_command_insert(film)
-        # sql_command_update(film)
         films.append(film)
     return films
 

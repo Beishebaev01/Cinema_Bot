@@ -3,7 +3,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode
 # from config import bot
 # from keyboards.client_cb import start_markup
 # from database.bot_db import sql_command_random
-from parser.parser_from_ts_kg import parser
+from parser.parser_from_hdrezka import parser
 
 
 async def start_command(message: types.Message):
