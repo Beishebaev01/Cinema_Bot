@@ -27,6 +27,8 @@ def get_data_from_page(html):
             "title": item.find("div", class_="b-content__inline_item-link").find('a').getText(),
             "link": item.find("div", class_="b-content__inline_item-link").find("a").get("href"),
         }
+        sql_command_insert(film)
+        # sql_command_update(film)
         films.append(film)
     return films
 
@@ -38,10 +40,7 @@ def parser():
         for i in range(1, 2):
             html = get_html(f"{URL}page/{i}/")
             current_page = get_data_from_page(html.text)
-            sql_command_insert(current_page)
             films.extend(current_page)
-        return films
+            return films
     else:
         raise Exception("Error in parser")
-
-

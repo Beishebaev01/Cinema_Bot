@@ -13,9 +13,17 @@ def sql_create():
                "(title VARCHAR (100),"
                "link TEXT)")
     db.commit()
+    db.close()
 
 
-def sql_command_insert(film: dict):
-    cursor.execute("INSERT INTO films(title, link) VALUES (?, ?)",
-                    (film.get('title'), film.get('link')))
-    db.commit()
+def sql_command_insert(film):
+    with sqlite3.connect("films.sqlite3", isolation_level=None) as db:
+        cursor = db.cursor()
+        cursor.execute("INSERT INTO films VALUES (?, ?)", tuple(film.values()))
+
+
+def sql_command_update(film , title):
+    sql = '''UPDATE films SET title WHERE link = ?'''
+    try:
+        cursor = co
+
